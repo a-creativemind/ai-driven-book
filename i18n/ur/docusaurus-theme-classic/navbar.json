@@ -1,0 +1,22 @@
+{
+  "title": {
+    "message": "فزیکل اے آئی ٹیکسٹ بک",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "فزیکل اے آئی لوگو",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Textbook": {
+    "message": "نصابی کتاب",
+    "description": "Navbar item with label Textbook"
+  },
+  "item.label.Labs": {
+    "message": "لیبز",
+    "description": "Navbar item with label Labs"
+  },
+  "item.label.GitHub": {
+    "message": "گٹ ہب",
+    "description": "Navbar item with label GitHub"
+  }
+}

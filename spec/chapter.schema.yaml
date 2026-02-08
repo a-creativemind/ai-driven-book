@@ -1,0 +1,420 @@
+# Chapter Schema
+# JSON Schema for validating chapter markdown frontmatter and structure
+# Version: 1.0.0
+
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "chapter.schema.yaml"
+title: "Chapter Schema"
+description: "Schema for validating Physical AI textbook chapters"
+
+type: object
+
+required:
+  - title
+  - chapter_id
+  - part_id
+  - difficulty
+  - learning_objectives
+  - core_concepts
+  - examples
+  - summary
+  - references
+
+properties:
+  # Metadata Section
+  title:
+    type: string
+    description: "Chapter title"
+    minLength: 5
+    maxLength: 120
+
+  chapter_id:
+    type: string
+    description: "Unique chapter identifier"
+    pattern: "^[a-z0-9-]+$"
+
+  part_id:
+    type: string
+    description: "Parent part identifier"
+    pattern: "^part-[0-9]+-[a-z-]+$"
+
+  difficulty:
+    type: string
+    description: "Chapter difficulty level"
+    enum:
+      - beginner
+      - intermediate
+      - advanced
+
+  estimated_time:
+    type: string
+    description: "Estimated reading/completion time"
+    pattern: "^[0-9]+ minutes$"
+
+  prerequisites:
+    type: array
+    description: "List of prerequisite chapter IDs or concepts"
+    items:
+      type: string
+    default: []
+
+  tags:
+    type: array
+    description: "Content tags for search and categorization"
+    items:
+      type: string
+    default: []
+
+  last_updated:
+    type: string
+    description: "ISO date of last update"
+    format: date
+
+  author:
+    type: string
+    description: "Content author/generator"
+    default: "Claude Code"
+
+  # Learning Objectives Section
+  learning_objectives:
+    type: array
+    description: "Measurable learning outcomes"
+    minItems: 3
+    maxItems: 8
+    items:
+      $ref: "#/$defs/learning_objective"
+
+  # Core Concepts Section
+  core_concepts:
+    type: array
+    description: "Key concepts covered in the chapter"
+    minItems: 2
+    items:
+      $ref: "#/$defs/concept"
+
+  # Diagrams and Figures Section
+  diagrams_or_figures:
+    type: array
+    description: "Visual aids and diagrams"
+    items:
+      $ref: "#/$defs/figure"
+    default: []
+
+  # Examples Section
+  examples:
+    type: array
+    description: "Illustrative examples and code samples"
+    minItems: 1
+    items:
+      $ref: "#/$defs/example"
+
+  # Exercises Section (optional)
+  exercises:
+    type: array
+    description: "Practice exercises for the reader"
+    items:
+      $ref: "#/$defs/exercise"
+    default: []
+
+  # Summary Section
+  summary:
+    type: string
+    description: "Chapter summary/key takeaways"
+    minLength: 100
+    maxLength: 2000
+
+  # Key Takeaways (optional bulleted list)
+  key_takeaways:
+    type: array
+    description: "Bulleted list of key points"
+    items:
+      type: string
+    minItems: 3
+    maxItems: 10
+
+  # References Section
+  references:
+    type: array
+    description: "Academic and external references"
+    minItems: 1
+    items:
+      $ref: "#/$defs/reference"
+
+  # Further Reading (optional)
+  further_reading:
+    type: array
+    description: "Suggested additional resources"
+    items:
+      $ref: "#/$defs/resource"
+    default: []
+
+  # Next Chapter Navigation
+  next_chapter:
+    type: string
+    description: "ID of the next chapter"
+    pattern: "^[a-z0-9-]+$"
+
+  previous_chapter:
+    type: string
+    description: "ID of the previous chapter"
+    pattern: "^[a-z0-9-]+$"
+
+# Reusable Definitions
+$defs:
+  learning_objective:
+    type: object
+    required:
+      - id
+      - description
+      - bloom_level
+    properties:
+      id:
+        type: string
+        description: "Unique objective identifier (e.g., LO-1)"
+        pattern: "^LO-[0-9]+$"
+      description:
+        type: string
+        description: "The learning objective statement"
+        minLength: 20
+        maxLength: 300
+      bloom_level:
+        type: string
+        description: "Bloom's Taxonomy level"
+        enum:
+          - remember
+          - understand
+          - apply
+          - analyze
+          - evaluate
+          - create
+      assessment_criteria:
+        type: string
+        description: "How this objective will be assessed"
+
+  concept:
+    type: object
+    required:
+      - name
+      - description
+    properties:
+      name:
+        type: string
+        description: "Concept name/term"
+        minLength: 2
+        maxLength: 100
+      description:
+        type: string
+        description: "Detailed explanation of the concept"
+        minLength: 50
+      formula:
+        type: string
+        description: "Mathematical formula if applicable (LaTeX)"
+      related_concepts:
+        type: array
+        description: "Related concept names"
+        items:
+          type: string
+
+  figure:
+    type: object
+    required:
+      - id
+      - caption
+      - alt_text
+    properties:
+      id:
+        type: string
+        description: "Figure identifier (e.g., fig-1-1)"
+        pattern: "^fig-[0-9]+-[0-9]+$"
+      path:
+        type: string
+        description: "Path to the image file"
+      caption:
+        type: string
+        description: "Figure caption"
+        minLength: 10
+      alt_text:
+        type: string
+        description: "Accessibility description"
+        minLength: 20
+      source:
+        type: string
+        description: "Image source/attribution"
+      type:
+        type: string
+        enum:
+          - diagram
+          - chart
+          - photo
+          - illustration
+          - screenshot
+
+  example:
+    type: object
+    required:
+      - id
+      - title
+      - content
+    properties:
+      id:
+        type: string
+        description: "Example identifier (e.g., ex-1)"
+        pattern: "^ex-[0-9]+$"
+      title:
+        type: string
+        description: "Example title"
+        minLength: 5
+      content:
+        type: string
+        description: "Example explanation"
+        minLength: 50
+      code:
+        type: string
+        description: "Code snippet if applicable"
+      language:
+        type: string
+        description: "Programming language"
+        enum:
+          - python
+          - cpp
+          - bash
+          - yaml
+          - json
+          - xml
+          - pseudocode
+      output:
+        type: string
+        description: "Expected output"
+      difficulty:
+        type: string
+        enum:
+          - basic
+          - intermediate
+          - advanced
+
+  exercise:
+    type: object
+    required:
+      - id
+      - question
+      - type
+    properties:
+      id:
+        type: string
+        description: "Exercise identifier"
+        pattern: "^exercise-[0-9]+$"
+      question:
+        type: string
+        description: "Exercise question/prompt"
+        minLength: 20
+      type:
+        type: string
+        enum:
+          - multiple_choice
+          - short_answer
+          - coding
+          - conceptual
+          - hands_on
+      difficulty:
+        type: string
+        enum:
+          - easy
+          - medium
+          - hard
+      hints:
+        type: array
+        items:
+          type: string
+      solution:
+        type: string
+        description: "Solution (hidden by default)"
+      points:
+        type: integer
+        minimum: 1
+        maximum: 100
+
+  reference:
+    type: object
+    required:
+      - id
+      - citation
+    properties:
+      id:
+        type: string
+        description: "Reference identifier (e.g., ref-1)"
+        pattern: "^ref-[0-9]+$"
+      citation:
+        type: string
+        description: "Full citation text"
+        minLength: 20
+      url:
+        type: string
+        format: uri
+        description: "Link to the resource"
+      doi:
+        type: string
+        description: "Digital Object Identifier"
+      type:
+        type: string
+        enum:
+          - paper
+          - book
+          - website
+          - video
+          - course
+
+  resource:
+    type: object
+    required:
+      - title
+      - url
+    properties:
+      title:
+        type: string
+        minLength: 5
+      url:
+        type: string
+        format: uri
+      description:
+        type: string
+      type:
+        type: string
+        enum:
+          - article
+          - video
+          - course
+          - documentation
+          - tutorial
+          - book
+
+# Validation Examples
+examples:
+  - title: "Embodied Intelligence"
+    chapter_id: "embodiment"
+    part_id: "part-1-physical-ai"
+    difficulty: "beginner"
+    estimated_time: "45 minutes"
+    learning_objectives:
+      - id: "LO-1"
+        description: "Define embodied intelligence and explain how it differs from disembodied AI"
+        bloom_level: "understand"
+      - id: "LO-2"
+        description: "Identify the key components of an embodied AI system"
+        bloom_level: "remember"
+      - id: "LO-3"
+        description: "Analyze the role of physical interaction in learning"
+        bloom_level: "analyze"
+    core_concepts:
+      - name: "Embodiment"
+        description: "The principle that intelligence emerges from the interaction between an agent's body, brain, and environment."
+      - name: "Sensorimotor Loop"
+        description: "The continuous cycle of sensing, processing, and acting that forms the basis of embodied cognition."
+    examples:
+      - id: "ex-1"
+        title: "Simple Embodied Agent"
+        content: "A robot learning to balance demonstrates embodied intelligence through physical trial and error."
+    summary: "This chapter introduced the concept of embodied intelligence, explaining how physical interaction with the environment is fundamental to certain forms of learning and cognition that cannot be achieved through purely computational approaches."
+    references:
+      - id: "ref-1"
+        citation: "Pfeifer, R., & Bongard, J. (2006). How the Body Shapes the Way We Think. MIT Press."
+        type: "book"

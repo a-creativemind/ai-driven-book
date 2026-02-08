@@ -1,0 +1,8 @@
+{
+  "label": "Part III: Learning Systems",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Machine learning approaches for robot control, from reinforcement learning to foundation models."
+  }
+}

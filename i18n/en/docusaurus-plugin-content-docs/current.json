@@ -1,0 +1,90 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.textbookSidebar.category.Part I: Physical AI Foundations": {
+    "message": "Part I: Physical AI Foundations",
+    "description": "The label for category 'Part I: Physical AI Foundations' in sidebar 'textbookSidebar'"
+  },
+  "sidebar.textbookSidebar.category.Part II: Humanoid Robotics": {
+    "message": "Part II: Humanoid Robotics",
+    "description": "The label for category 'Part II: Humanoid Robotics' in sidebar 'textbookSidebar'"
+  },
+  "sidebar.textbookSidebar.category.Part III: Learning Systems": {
+    "message": "Part III: Learning Systems",
+    "description": "The label for category 'Part III: Learning Systems' in sidebar 'textbookSidebar'"
+  },
+  "sidebar.textbookSidebar.category.Part IV: Tooling & Labs": {
+    "message": "Part IV: Tooling & Labs",
+    "description": "The label for category 'Part IV: Tooling & Labs' in sidebar 'textbookSidebar'"
+  },
+  "sidebar.textbookSidebar.category.Part V: Ethics & Future": {
+    "message": "Part V: Ethics & Future",
+    "description": "The label for category 'Part V: Ethics & Future' in sidebar 'textbookSidebar'"
+  },
+  "sidebar.textbookSidebar.doc.Introduction": {
+    "message": "Introduction",
+    "description": "The label for the doc item 'Introduction' in sidebar 'textbookSidebar', linking to the doc intro"
+  },
+  "sidebar.textbookSidebar.doc.1.1 Embodied Intelligence": {
+    "message": "1.1 Embodied Intelligence",
+    "description": "The label for the doc item '1.1 Embodied Intelligence' in sidebar 'textbookSidebar', linking to the doc physical-ai/embodiment"
+  },
+  "sidebar.textbookSidebar.doc.1.2 Sensors & Actuators": {
+    "message": "1.2 Sensors & Actuators",
+    "description": "The label for the doc item '1.2 Sensors & Actuators' in sidebar 'textbookSidebar', linking to the doc physical-ai/sensors-actuators"
+  },
+  "sidebar.textbookSidebar.doc.1.3 Control Systems": {
+    "message": "1.3 Control Systems",
+    "description": "The label for the doc item '1.3 Control Systems' in sidebar 'textbookSidebar', linking to the doc physical-ai/control-systems"
+  },
+  "sidebar.textbookSidebar.doc.1.4 Sim-to-Real Transfer": {
+    "message": "1.4 Sim-to-Real Transfer",
+    "description": "The label for the doc item '1.4 Sim-to-Real Transfer' in sidebar 'textbookSidebar', linking to the doc physical-ai/sim2real"
+  },
+  "sidebar.textbookSidebar.doc.2.1 Kinematics & Dynamics": {
+    "message": "2.1 Kinematics & Dynamics",
+    "description": "The label for the doc item '2.1 Kinematics & Dynamics' in sidebar 'textbookSidebar', linking to the doc humanoid-robotics/kinematics"
+  },
+  "sidebar.textbookSidebar.doc.2.2 Bipedal Locomotion": {
+    "message": "2.2 Bipedal Locomotion",
+    "description": "The label for the doc item '2.2 Bipedal Locomotion' in sidebar 'textbookSidebar', linking to the doc humanoid-robotics/locomotion"
+  },
+  "sidebar.textbookSidebar.doc.2.3 Dexterous Manipulation": {
+    "message": "2.3 Dexterous Manipulation",
+    "description": "The label for the doc item '2.3 Dexterous Manipulation' in sidebar 'textbookSidebar', linking to the doc humanoid-robotics/manipulation"
+  },
+  "sidebar.textbookSidebar.doc.2.4 Robot Perception": {
+    "message": "2.4 Robot Perception",
+    "description": "The label for the doc item '2.4 Robot Perception' in sidebar 'textbookSidebar', linking to the doc humanoid-robotics/perception"
+  },
+  "sidebar.textbookSidebar.doc.3.1 Reinforcement Learning": {
+    "message": "3.1 Reinforcement Learning",
+    "description": "The label for the doc item '3.1 Reinforcement Learning' in sidebar 'textbookSidebar', linking to the doc ai-systems/rl"
+  },
+  "sidebar.textbookSidebar.doc.3.2 Imitation Learning": {
+    "message": "3.2 Imitation Learning",
+    "description": "The label for the doc item '3.2 Imitation Learning' in sidebar 'textbookSidebar', linking to the doc ai-systems/imitation-learning"
+  },
+  "sidebar.textbookSidebar.doc.3.3 Foundation Models for Robotics": {
+    "message": "3.3 Foundation Models for Robotics",
+    "description": "The label for the doc item '3.3 Foundation Models for Robotics' in sidebar 'textbookSidebar', linking to the doc ai-systems/foundation-models"
+  },
+  "sidebar.textbookSidebar.doc.4.1 ROS 2 Fundamentals": {
+    "message": "4.1 ROS 2 Fundamentals",
+    "description": "The label for the doc item '4.1 ROS 2 Fundamentals' in sidebar 'textbookSidebar', linking to the doc labs/ros2"
+  },
+  "sidebar.textbookSidebar.doc.4.2 NVIDIA Isaac Sim": {
+    "message": "4.2 NVIDIA Isaac Sim",
+    "description": "The label for the doc item '4.2 NVIDIA Isaac Sim' in sidebar 'textbookSidebar', linking to the doc labs/isaac-sim"
+  },
+  "sidebar.textbookSidebar.doc.4.3 MuJoCo Physics Simulation": {
+    "message": "4.3 MuJoCo Physics Simulation",
+    "description": "The label for the doc item '4.3 MuJoCo Physics Simulation' in sidebar 'textbookSidebar', linking to the doc labs/mujoco"
+  },
+  "sidebar.textbookSidebar.doc.5.1 Safety, Alignment & HRI": {
+    "message": "5.1 Safety, Alignment & HRI",
+    "description": "The label for the doc item '5.1 Safety, Alignment & HRI' in sidebar 'textbookSidebar', linking to the doc ethics-future"
+  }
+}

@@ -1,0 +1,323 @@
+/**
+ * Physical AI Textbook - Custom CSS
+ * Docusaurus v3 Theme Customization
+ */
+
+/* Color Palette */
+:root {
+  /* Primary colors */
+  --ifm-color-primary: #2e7d8a;
+  --ifm-color-primary-dark: #296f7b;
+  --ifm-color-primary-darker: #276974;
+  --ifm-color-primary-darkest: #20565f;
+  --ifm-color-primary-light: #338b99;
+  --ifm-color-primary-lighter: #3591a0;
+  --ifm-color-primary-lightest: #3fa4b4;
+
+  /* Code block styling */
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Font customization */
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --ifm-font-family-monospace: 'Fira Code', 'JetBrains Mono', monospace;
+
+  /* Spacing */
+  --ifm-spacing-horizontal: 1.5rem;
+}
+
+/* Dark theme colors */
+[data-theme='dark'] {
+  --ifm-color-primary: #4db6c4;
+  --ifm-color-primary-dark: #36aab9;
+  --ifm-color-primary-darker: #2fa2b1;
+  --ifm-color-primary-darkest: #278692;
+  --ifm-color-primary-light: #64c2cf;
+  --ifm-color-primary-lighter: #6cc6d2;
+  --ifm-color-primary-lightest: #8fd4de;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* RTL Support for Urdu */
+[dir='rtl'] {
+  --ifm-font-family-base: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif;
+}
+
+/* Chapter styling */
+.chapter-header {
+  border-bottom: 3px solid var(--ifm-color-primary);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Learning objectives box */
+.learning-objectives {
+  background: linear-gradient(135deg, var(--ifm-color-primary-lightest) 0%, #fff 100%);
+  border-left: 4px solid var(--ifm-color-primary);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+[data-theme='dark'] .learning-objectives {
+  background: linear-gradient(135deg, rgba(77, 182, 196, 0.2) 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+.learning-objectives h3 {
+  margin-top: 0;
+  color: var(--ifm-color-primary-dark);
+}
+
+.learning-objectives ul {
+  margin-bottom: 0;
+}
+
+/* Code examples styling */
+.code-example {
+  margin: 1.5rem 0;
+}
+
+.code-example-title {
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px 8px 0 0;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.code-example pre {
+  margin-top: 0;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Math equations */
+.katex-display {
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+[data-theme='dark'] .katex-display {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Difficulty badges */
+.badge-difficulty {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-right: 0.5rem;
+}
+
+.badge-beginner {
+  background: #4caf50;
+  color: white;
+}
+
+.badge-intermediate {
+  background: #ff9800;
+  color: white;
+}
+
+.badge-advanced {
+  background: #f44336;
+  color: white;
+}
+
+/* Lab chapter styling */
+.lab-chapter {
+  border: 2px dashed var(--ifm-color-primary);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+}
+
+.lab-chapter::before {
+  content: "🔬 Hands-on Lab";
+  display: block;
+  font-weight: bold;
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.5rem;
+}
+
+/* Personalize button */
+.personalize-btn {
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-dark) 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.personalize-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(46, 125, 138, 0.4);
+}
+
+/* Translate button */
+.translate-btn {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.translate-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+/* Chatbot widget */
+.chatbot-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.chatbot-toggle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+.chatbot-toggle:hover {
+  transform: scale(1.1);
+}
+
+.chatbot-toggle svg {
+  width: 28px;
+  height: 28px;
+  fill: white;
+}
+
+/* Sidebar enhancements */
+.menu__link {
+  font-size: 0.95rem;
+}
+
+.menu__list-item--collapsed .menu__link {
+  font-weight: 600;
+}
+
+/* Table of contents */
+.table-of-contents {
+  font-size: 0.85rem;
+}
+
+.table-of-contents__link--active {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}
+
+/* Figure captions */
+figure {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+figcaption {
+  font-style: italic;
+  color: var(--ifm-color-emphasis-600);
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Key takeaways box */
+.key-takeaways {
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+[data-theme='dark'] .key-takeaways {
+  background: rgba(255, 193, 7, 0.1);
+  border-color: rgba(255, 193, 7, 0.3);
+}
+
+.key-takeaways h3 {
+  margin-top: 0;
+  color: #856404;
+}
+
+[data-theme='dark'] .key-takeaways h3 {
+  color: #ffc107;
+}
+
+/* Exercise boxes */
+.exercise {
+  background: #e3f2fd;
+  border-left: 4px solid #2196f3;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+[data-theme='dark'] .exercise {
+  background: rgba(33, 150, 243, 0.1);
+}
+
+.exercise-title {
+  font-weight: 700;
+  color: #1565c0;
+  margin-bottom: 0.5rem;
+}
+
+[data-theme='dark'] .exercise-title {
+  color: #64b5f6;
+}
+
+/* Print styles */
+@media print {
+  .navbar,
+  .footer,
+  .chatbot-widget,
+  .table-of-contents {
+    display: none !important;
+  }
+
+  .markdown {
+    max-width: 100% !important;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .personalize-btn,
+  .translate-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .learning-objectives {
+    padding: 1rem;
+  }
+}

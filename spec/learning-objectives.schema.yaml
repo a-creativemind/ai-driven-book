@@ -1,0 +1,441 @@
+# Learning Objectives Schema
+# Comprehensive schema for educational learning objectives
+# Based on Bloom's Taxonomy and instructional design best practices
+# Version: 1.0.0
+
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "learning-objectives.schema.yaml"
+title: "Learning Objectives Schema"
+description: "Schema for defining and validating learning objectives in the Physical AI textbook"
+
+type: object
+
+required:
+  - objectives
+
+properties:
+  objectives:
+    type: array
+    description: "Collection of learning objectives"
+    minItems: 1
+    items:
+      $ref: "#/$defs/learning_objective"
+
+  metadata:
+    type: object
+    properties:
+      chapter_id:
+        type: string
+        description: "Associated chapter identifier"
+      part_id:
+        type: string
+        description: "Associated part identifier"
+      total_objectives:
+        type: integer
+        description: "Total number of objectives"
+      bloom_distribution:
+        type: object
+        description: "Distribution of objectives across Bloom's levels"
+        properties:
+          remember:
+            type: integer
+          understand:
+            type: integer
+          apply:
+            type: integer
+          analyze:
+            type: integer
+          evaluate:
+            type: integer
+          create:
+            type: integer
+
+$defs:
+  learning_objective:
+    type: object
+    required:
+      - id
+      - description
+      - bloom_level
+      - action_verb
+    properties:
+      id:
+        type: string
+        description: "Unique identifier for the learning objective"
+        pattern: "^LO-[A-Z0-9]+-[0-9]+$"
+        examples:
+          - "LO-EMB-1"
+          - "LO-KIN-3"
+
+      description:
+        type: string
+        description: "Full statement of the learning objective"
+        minLength: 30
+        maxLength: 500
+
+      bloom_level:
+        type: string
+        description: "Cognitive level from Bloom's Revised Taxonomy"
+        enum:
+          - remember
+          - understand
+          - apply
+          - analyze
+          - evaluate
+          - create
+
+      action_verb:
+        type: string
+        description: "The measurable action verb used in the objective"
+
+      topic:
+        type: string
+        description: "The specific topic or concept addressed"
+
+      condition:
+        type: string
+        description: "Conditions under which the learner will perform"
+        examples:
+          - "Given a robot simulation environment"
+          - "After completing the lab exercise"
+
+      criterion:
+        type: string
+        description: "Standards for acceptable performance"
+        examples:
+          - "with 90% accuracy"
+          - "within 5 minutes"
+
+      assessment_method:
+        type: string
+        description: "How this objective will be assessed"
+        enum:
+          - quiz
+          - coding_exercise
+          - lab_report
+          - peer_review
+          - self_assessment
+          - project
+          - discussion
+
+      difficulty:
+        type: string
+        enum:
+          - foundational
+          - intermediate
+          - advanced
+
+      time_to_achieve:
+        type: string
+        description: "Estimated time to achieve this objective"
+        pattern: "^[0-9]+-[0-9]+ minutes$"
+
+      prerequisites:
+        type: array
+        description: "Learning objective IDs that should be completed first"
+        items:
+          type: string
+          pattern: "^LO-[A-Z0-9]+-[0-9]+$"
+
+      related_concepts:
+        type: array
+        description: "Core concepts related to this objective"
+        items:
+          type: string
+
+      skills_developed:
+        type: array
+        description: "Skills the learner will develop"
+        items:
+          type: string
+          enum:
+            - critical_thinking
+            - problem_solving
+            - mathematical_reasoning
+            - programming
+            - system_design
+            - experimentation
+            - communication
+            - collaboration
+
+# Bloom's Taxonomy Action Verbs Reference
+# Used for validation and writing objectives
+bloom_verbs:
+  remember:
+    description: "Retrieve relevant knowledge from long-term memory"
+    verbs:
+      - define
+      - describe
+      - identify
+      - label
+      - list
+      - match
+      - name
+      - outline
+      - recall
+      - recognize
+      - reproduce
+      - select
+      - state
+
+  understand:
+    description: "Construct meaning from instructional messages"
+    verbs:
+      - classify
+      - compare
+      - contrast
+      - demonstrate
+      - explain
+      - express
+      - extend
+      - illustrate
+      - infer
+      - interpret
+      - paraphrase
+      - predict
+      - summarize
+      - translate
+
+  apply:
+    description: "Carry out or use a procedure in a given situation"
+    verbs:
+      - apply
+      - calculate
+      - carry out
+      - complete
+      - compute
+      - demonstrate
+      - develop
+      - employ
+      - examine
+      - execute
+      - implement
+      - modify
+      - operate
+      - practice
+      - schedule
+      - show
+      - sketch
+      - solve
+      - use
+
+  analyze:
+    description: "Break material into parts and determine relationships"
+    verbs:
+      - analyze
+      - arrange
+      - break down
+      - categorize
+      - classify
+      - compare
+      - connect
+      - contrast
+      - deconstruct
+      - differentiate
+      - discriminate
+      - distinguish
+      - divide
+      - examine
+      - experiment
+      - identify
+      - illustrate
+      - infer
+      - inspect
+      - investigate
+      - order
+      - organize
+      - outline
+      - relate
+      - separate
+      - test
+
+  evaluate:
+    description: "Make judgments based on criteria and standards"
+    verbs:
+      - appraise
+      - argue
+      - assess
+      - choose
+      - compare
+      - conclude
+      - contrast
+      - convince
+      - criticize
+      - critique
+      - decide
+      - defend
+      - determine
+      - discriminate
+      - estimate
+      - evaluate
+      - explain
+      - grade
+      - interpret
+      - judge
+      - justify
+      - measure
+      - prioritize
+      - prove
+      - rank
+      - rate
+      - recommend
+      - review
+      - score
+      - select
+      - support
+      - test
+      - validate
+      - value
+      - verify
+
+  create:
+    description: "Put elements together to form a coherent whole"
+    verbs:
+      - arrange
+      - assemble
+      - build
+      - categorize
+      - collect
+      - combine
+      - compile
+      - compose
+      - construct
+      - create
+      - design
+      - develop
+      - devise
+      - formulate
+      - generate
+      - hypothesize
+      - integrate
+      - invent
+      - make
+      - manage
+      - modify
+      - organize
+      - originate
+      - plan
+      - prepare
+      - produce
+      - propose
+      - rearrange
+      - reconstruct
+      - revise
+      - rewrite
+      - set up
+      - synthesize
+      - write
+
+# Guidelines for Writing Learning Objectives
+writing_guidelines:
+  format: "ABCD Method"
+  components:
+    A: "Audience - Who is the learner?"
+    B: "Behavior - What will the learner do? (measurable verb)"
+    C: "Condition - Under what circumstances?"
+    D: "Degree - How well must it be done?"
+
+  good_examples:
+    - objective: "After completing this chapter, the student will be able to implement a PID controller in Python that maintains robot position within 5% error."
+      breakdown:
+        audience: "the student"
+        behavior: "implement a PID controller"
+        condition: "After completing this chapter"
+        degree: "within 5% error"
+      bloom_level: "apply"
+
+    - objective: "Given a robotic arm specification, learners will analyze the kinematic chain to determine the degrees of freedom."
+      breakdown:
+        audience: "learners"
+        behavior: "analyze the kinematic chain"
+        condition: "Given a robotic arm specification"
+        degree: "determine the degrees of freedom"
+      bloom_level: "analyze"
+
+  poor_examples:
+    - bad: "Understand robotics"
+      problem: "Too vague, not measurable"
+      better: "Explain the three laws of robotics and provide an example of each"
+
+    - bad: "Know about sensors"
+      problem: "'Know' is not measurable"
+      better: "Identify five types of sensors used in robotics and describe the principle of operation for each"
+
+# Validation Rules
+validation:
+  rules:
+    - name: "measurable_verb"
+      description: "Objective must start with a measurable action verb"
+      severity: "error"
+
+    - name: "bloom_alignment"
+      description: "Action verb must align with stated Bloom's level"
+      severity: "warning"
+
+    - name: "specificity"
+      description: "Objective must be specific and not vague"
+      severity: "error"
+
+    - name: "single_outcome"
+      description: "Each objective should address only one outcome"
+      severity: "warning"
+
+    - name: "prerequisite_order"
+      description: "Prerequisites must be defined before dependents"
+      severity: "error"
+
+  chapter_requirements:
+    min_objectives: 3
+    max_objectives: 8
+    bloom_balance:
+      description: "Chapters should have objectives across multiple Bloom's levels"
+      min_levels: 2
+    difficulty_progression:
+      description: "Objectives should progress from foundational to advanced"
+      required: true
+
+# Example Learning Objectives for Reference
+examples:
+  chapter_embodiment:
+    - id: "LO-EMB-1"
+      description: "Define embodied intelligence and distinguish it from traditional disembodied AI approaches"
+      bloom_level: "understand"
+      action_verb: "define"
+      topic: "embodied intelligence"
+      assessment_method: "quiz"
+      difficulty: "foundational"
+
+    - id: "LO-EMB-2"
+      description: "Identify and categorize the key components of an embodied AI system including sensors, actuators, and control units"
+      bloom_level: "analyze"
+      action_verb: "identify"
+      topic: "system components"
+      assessment_method: "coding_exercise"
+      difficulty: "intermediate"
+
+    - id: "LO-EMB-3"
+      description: "Design a simple embodied agent architecture for a specified task environment"
+      bloom_level: "create"
+      action_verb: "design"
+      topic: "agent architecture"
+      assessment_method: "project"
+      difficulty: "advanced"
+
+  chapter_kinematics:
+    - id: "LO-KIN-1"
+      description: "Calculate forward kinematics for a 3-DOF robotic arm using Denavit-Hartenberg parameters"
+      bloom_level: "apply"
+      action_verb: "calculate"
+      topic: "forward kinematics"
+      condition: "Given DH parameters"
+      criterion: "with correct homogeneous transformation matrices"
+      assessment_method: "coding_exercise"
+      difficulty: "intermediate"
+
+    - id: "LO-KIN-2"
+      description: "Derive the Jacobian matrix for a planar manipulator and explain its significance for velocity control"
+      bloom_level: "analyze"
+      action_verb: "derive"
+      topic: "Jacobian matrix"
+      assessment_method: "lab_report"
+      difficulty: "advanced"

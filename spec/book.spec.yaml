@@ -1,0 +1,262 @@
+# Book Specification
+# Physical AI & Humanoid Robotics: From Foundations to Embodied Intelligence
+# This is the authoritative source for book structure and metadata
+
+book:
+  title: "Physical AI & Humanoid Robotics: From Foundations to Embodied Intelligence"
+  subtitle: "A Comprehensive Guide to Embodied AI Systems"
+  version: "1.0.0"
+  language: "en"
+
+  authors:
+    - name: "AI-Generated Content"
+      tool: "Claude Code"
+      role: "Primary Author"
+
+  publisher:
+    name: "Self-Published"
+    platform: "GitHub Pages"
+    framework: "Docusaurus v3"
+
+  metadata:
+    isbn: null
+    doi: null
+    license: "CC BY-NC-SA 4.0"
+    keywords:
+      - physical AI
+      - humanoid robotics
+      - embodied intelligence
+      - reinforcement learning
+      - sim-to-real
+      - robot control
+      - ROS 2
+      - Isaac Sim
+      - MuJoCo
+
+  target_audience:
+    primary: "Graduate students and researchers in robotics and AI"
+    secondary: "Industry practitioners in robotics"
+    prerequisites:
+      - "Linear algebra fundamentals"
+      - "Basic calculus"
+      - "Python programming"
+      - "Introduction to machine learning"
+
+# Book Structure Definition
+structure:
+  parts:
+    - id: "part-1-physical-ai"
+      title: "Physical AI Foundations"
+      description: "Core concepts of embodied artificial intelligence"
+      order: 1
+      chapters:
+        - id: "embodiment"
+          file: "docs/physical-ai/embodiment.md"
+          title: "Embodied Intelligence"
+          order: 1
+          difficulty: "beginner"
+          estimated_time: "45 minutes"
+
+        - id: "sensors-actuators"
+          file: "docs/physical-ai/sensors-actuators.md"
+          title: "Sensors & Actuators"
+          order: 2
+          difficulty: "beginner"
+          estimated_time: "60 minutes"
+
+        - id: "control-systems"
+          file: "docs/physical-ai/control-systems.md"
+          title: "Control Systems"
+          order: 3
+          difficulty: "intermediate"
+          estimated_time: "90 minutes"
+
+        - id: "sim2real"
+          file: "docs/physical-ai/sim2real.md"
+          title: "Simulation to Reality Transfer"
+          order: 4
+          difficulty: "advanced"
+          estimated_time: "75 minutes"
+
+    - id: "part-2-humanoid-robotics"
+      title: "Humanoid Robotics"
+      description: "Design and control of humanoid robotic systems"
+      order: 2
+      chapters:
+        - id: "kinematics"
+          file: "docs/humanoid-robotics/kinematics.md"
+          title: "Kinematics & Dynamics"
+          order: 1
+          difficulty: "intermediate"
+          estimated_time: "90 minutes"
+
+        - id: "locomotion"
+          file: "docs/humanoid-robotics/locomotion.md"
+          title: "Bipedal Locomotion"
+          order: 2
+          difficulty: "advanced"
+          estimated_time: "90 minutes"
+
+        - id: "manipulation"
+          file: "docs/humanoid-robotics/manipulation.md"
+          title: "Dexterous Manipulation"
+          order: 3
+          difficulty: "advanced"
+          estimated_time: "75 minutes"
+
+        - id: "perception"
+          file: "docs/humanoid-robotics/perception.md"
+          title: "Robot Perception"
+          order: 4
+          difficulty: "intermediate"
+          estimated_time: "60 minutes"
+
+    - id: "part-3-learning-systems"
+      title: "Learning Systems"
+      description: "Machine learning approaches for robotics"
+      order: 3
+      chapters:
+        - id: "rl"
+          file: "docs/ai-systems/rl.md"
+          title: "Reinforcement Learning"
+          order: 1
+          difficulty: "intermediate"
+          estimated_time: "90 minutes"
+
+        - id: "imitation-learning"
+          file: "docs/ai-systems/imitation-learning.md"
+          title: "Imitation Learning"
+          order: 2
+          difficulty: "intermediate"
+          estimated_time: "75 minutes"
+
+        - id: "foundation-models"
+          file: "docs/ai-systems/foundation-models.md"
+          title: "Foundation Models for Robotics"
+          order: 3
+          difficulty: "advanced"
+          estimated_time: "90 minutes"
+
+    - id: "part-4-labs"
+      title: "Tooling & Labs"
+      description: "Hands-on practical exercises with industry tools"
+      order: 4
+      chapters:
+        - id: "ros2"
+          file: "docs/labs/ros2.md"
+          title: "ROS 2 Fundamentals"
+          order: 1
+          difficulty: "beginner"
+          estimated_time: "120 minutes"
+          lab: true
+
+        - id: "isaac-sim"
+          file: "docs/labs/isaac-sim.md"
+          title: "NVIDIA Isaac Sim"
+          order: 2
+          difficulty: "intermediate"
+          estimated_time: "120 minutes"
+          lab: true
+
+        - id: "mujoco"
+          file: "docs/labs/mujoco.md"
+          title: "MuJoCo Physics Simulation"
+          order: 3
+          difficulty: "intermediate"
+          estimated_time: "90 minutes"
+          lab: true
+
+    - id: "part-5-ethics"
+      title: "Ethics & Future"
+      description: "Ethical considerations and future directions"
+      order: 5
+      chapters:
+        - id: "ethics-future"
+          file: "docs/ethics-future.md"
+          title: "Safety, Alignment & Human-Robot Interaction"
+          order: 1
+          difficulty: "beginner"
+          estimated_time: "60 minutes"
+
+# Validation Rules
+validation:
+  schema_version: "1.0"
+  chapter_schema: "chapter.schema.yaml"
+  learning_objectives_schema: "learning-objectives.schema.yaml"
+
+  rules:
+    strict_mode: true
+    require_learning_objectives: true
+    min_learning_objectives: 3
+    require_examples: true
+    min_examples: 1
+    require_summary: true
+    min_summary_length: 100
+    require_references: true
+
+  code_validation:
+    languages_allowed:
+      - python
+      - bash
+      - yaml
+      - json
+      - cpp
+      - xml
+    require_runnable: true
+    require_comments: true
+
+  content_validation:
+    max_heading_depth: 4
+    require_alt_text: true
+    require_figure_captions: true
+    terminology_file: null  # Future: spec/terminology.yaml
+
+# Build Configuration
+build:
+  output_format: "docusaurus"
+  auto_toc: true
+  auto_navigation: true
+
+  features:
+    search: true
+    dark_mode: true
+    code_highlighting: true
+    math_rendering: true  # KaTeX
+
+  assets:
+    images_dir: "static/img"
+    diagrams_dir: "static/diagrams"
+    code_samples_dir: "static/code"
+
+# RAG Chatbot Integration
+chatbot:
+  enabled: true
+
+  ingestion:
+    chunk_size: 512
+    chunk_overlap: 50
+    embedding_model: "text-embedding-3-small"
+
+  metadata_fields:
+    - chapter_id
+    - section
+    - difficulty
+    - part_id
+
+  vector_store:
+    provider: "qdrant"
+    collection_name: "physical-ai-textbook"
+
+  features:
+    full_book_qa: true
+    selection_qa: true
+    chapter_aware: true
+
+# Internationalization
+i18n:
+  default_locale: "en"
+  supported_locales:
+    - "en"
+    - "ur"  # Urdu translation (bonus feature)
+  translation_provider: "openai"
+  rtl_support: true

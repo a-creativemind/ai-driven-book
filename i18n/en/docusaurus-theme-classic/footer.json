@@ -1,0 +1,46 @@
+{
+  "link.title.Textbook": {
+    "message": "Textbook",
+    "description": "The title of the footer links column with title=Textbook in the footer"
+  },
+  "link.title.Learning": {
+    "message": "Learning",
+    "description": "The title of the footer links column with title=Learning in the footer"
+  },
+  "link.title.Resources": {
+    "message": "Resources",
+    "description": "The title of the footer links column with title=Resources in the footer"
+  },
+  "link.item.label.Introduction": {
+    "message": "Introduction",
+    "description": "The label of footer link with label=Introduction linking to /docs/intro"
+  },
+  "link.item.label.Physical AI Foundations": {
+    "message": "Physical AI Foundations",
+    "description": "The label of footer link with label=Physical AI Foundations linking to /docs/physical-ai/embodiment"
+  },
+  "link.item.label.Humanoid Robotics": {
+    "message": "Humanoid Robotics",
+    "description": "The label of footer link with label=Humanoid Robotics linking to /docs/humanoid-robotics/kinematics"
+  },
+  "link.item.label.AI Systems": {
+    "message": "AI Systems",
+    "description": "The label of footer link with label=AI Systems linking to /docs/ai-systems/rl"
+  },
+  "link.item.label.Labs": {
+    "message": "Labs",
+    "description": "The label of footer link with label=Labs linking to /docs/labs/ros2"
+  },
+  "link.item.label.Ethics & Future": {
+    "message": "Ethics & Future",
+    "description": "The label of footer link with label=Ethics & Future linking to /docs/ethics-future"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/your-username/physical-ai-textbook"
+  },
+  "copyright": {
+    "message": "Copyright © 2026 Physical AI Textbook. AI-Generated with Claude Code. Licensed under CC BY-NC-SA 4.0.",
+    "description": "The footer copyright"
+  }
+}
